@@ -14,6 +14,7 @@ function AttemptCounter(props: AttemptCounterProps): JSX.Element {
       w="500px"
       shadow={"lg"}
       justifyContent={"center"}
+      mt={4}
       {...props}
     >
       <Text fontWeight="bold" fontSize={24}>

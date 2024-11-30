@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { Container, HStack, VStack } from "@chakra-ui/react";
+import { Container, HStack, VStack, Text } from "@chakra-ui/react";
 import { ATTEMPT_LIMIT, SECRET_WORDS, WORD_LENGTH } from "./utils/const";
 import AttemptCounter from "./components/AttemptCounter/AttemptCounter";
 import Keyboard from "./components/Keyboard/Keyboard";
@@ -142,7 +142,20 @@ function App() {
       justifyItems={"center"}
     >
       <VStack>
-        <AttemptCounter attemptCount={attemptCount} />
+        <Text as="h1" fontSize={48} fontWeight="bold">
+          Wordle Clone
+        </Text>
+        <Text as="aside" fontSize={12} fontStyle="italic">
+          For the original game, visit{" "}
+          <a
+            href="https://www.nytimes.com/games/wordle/index.html"
+            target="_blank"
+            rel="noreferrer"
+          >
+            this link
+          </a>
+        </Text>
+        <AttemptCounter attemptCount={attemptCount}/>
         <HStack alignItems={"start"}>
           <CurrentAttempt currentAttempt={currentAttempt} />
           <AttemptedWords
