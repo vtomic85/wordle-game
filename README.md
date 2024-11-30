@@ -1,5 +1,21 @@
 # Getting Started with Create React App
 
+## How to Play Wordle
+
+Wordle is a simple word-guessing game. The objective is to guess a hidden five-letter word within six attempts. Here are the basic instructions:
+
+1. Enter a five-letter word as your guess.
+2. After each guess, the color of the tiles will change to show how close your guess was to the word:
+   - Green: The letter is in the correct position.
+   - Yellow: The letter is in the word but in the wrong position.
+   - Gray: The letter is not in the word at all.
+3. Use the feedback from the colors to make your next guess.
+4. Repeat until you either guess the word correctly or run out of attempts.
+
+Enjoy playing and challenge yourself to find the word in as few guesses as possible!
+
+# Technical Info
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
