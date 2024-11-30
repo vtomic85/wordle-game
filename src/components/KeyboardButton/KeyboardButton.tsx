@@ -19,6 +19,7 @@ function KeyboardButton(props: KeyboardButtonProps) {
       shadow={"md"}
       _hover={{ bgColor: "whiteAlpha.500" }}
       onClick={() => onLetterKeyPress(letter)}
+      onFocus={(e) => e.target.blur()}
       {...props}
     >
       {letter}
