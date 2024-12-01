@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { Container, HStack, VStack, Text } from "@chakra-ui/react";
+import { Container, HStack, VStack, Text, Flex } from "@chakra-ui/react";
 import { ATTEMPT_LIMIT, SECRET_WORDS, WORD_LENGTH } from "./utils/const";
 import AttemptCounter from "./components/AttemptCounter/AttemptCounter";
 import Keyboard from "./components/Keyboard/Keyboard";
@@ -136,48 +136,47 @@ function App() {
   };
 
   return (
-    <Container
-      fontFamily={"Faculty Glyphic, sans-serif"}
-      p={4}
-      justifyItems={"center"}
-    >
-      <VStack>
-        <Text as="h1" fontSize={48} fontWeight="bold">
-          Wordle Clone
-        </Text>
-        <Text as="aside" fontSize={12} fontStyle="italic">
-          For the original game, visit{" "}
-          <a
-            href="https://www.nytimes.com/games/wordle/index.html"
-            target="_blank"
-            rel="noreferrer"
-          >
-            this link
-          </a>
-        </Text>
-        <AttemptCounter attemptCount={attemptCount}/>
-        <HStack alignItems={"start"}>
-          <CurrentAttempt currentAttempt={currentAttempt} />
-          <AttemptedWords
-            attemptedWords={attemptedWords}
-            secretWord={secretWord}
+    <Container>
+      <Flex fontFamily={"Faculty Glyphic, sans-serif"} p={4}>
+        <VStack>
+          <Text as="h1" fontSize={48} fontWeight="bold">
+            Wordle Clone
+          </Text>
+          <Text as="aside" fontSize={12} fontStyle="italic">
+            For the original game, visit{" "}
+            <a
+              href="https://www.nytimes.com/games/wordle/index.html"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "blue" }}
+            >
+              this link
+            </a>
+          </Text>
+          <AttemptCounter attemptCount={attemptCount} />
+          <HStack alignItems={"start"}>
+            <CurrentAttempt currentAttempt={currentAttempt} />
+            <AttemptedWords
+              attemptedWords={attemptedWords}
+              secretWord={secretWord}
+            />
+            <GameHistory gameHistoryEntries={gameHistoryEntries} />
+          </HStack>
+          <Keyboard
+            usedLetters={usedLetters}
+            onEnterKeyPress={handleEnterKeyPress}
+            onBackspaceKeyPress={handleBackspaceKeyPress}
+            onLetterKeyPress={handleLetterKeyPress}
           />
-          <GameHistory gameHistoryEntries={gameHistoryEntries} />
-        </HStack>
-        <Keyboard
-          usedLetters={usedLetters}
-          onEnterKeyPress={handleEnterKeyPress}
-          onBackspaceKeyPress={handleBackspaceKeyPress}
-          onLetterKeyPress={handleLetterKeyPress}
-        />
-        <RestartButton isGameOver={isGameOver} restartGame={restartGame} />
-      </VStack>
-      {isGameOver && isWin && (
-        <GameOverBox isWin={true} secretWord={secretWord} />
-      )}
-      {isGameOver && !isWin && (
-        <GameOverBox isWin={false} secretWord={secretWord} />
-      )}
+          <RestartButton isGameOver={isGameOver} restartGame={restartGame} />
+          {isGameOver && isWin && (
+            <GameOverBox isWin={true} secretWord={secretWord} />
+          )}
+          {isGameOver && !isWin && (
+            <GameOverBox isWin={false} secretWord={secretWord} />
+          )}
+        </VStack>
+      </Flex>
     </Container>
   );
 }

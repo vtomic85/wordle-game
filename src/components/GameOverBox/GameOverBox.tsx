@@ -1,4 +1,4 @@
-import { Box, VStack, HStack, Text } from "@chakra-ui/react";
+import { Box, VStack, HStack, Text, Center } from "@chakra-ui/react";
 import Letter from "../Letter/Letter";
 
 export interface GameOverBoxProps {
@@ -11,16 +11,19 @@ function GameOverBox(props: GameOverBoxProps): JSX.Element {
   return (
     <Box
       borderRadius={12}
-      border={"3px solid black"}
+      borderWidth="30px"
+      borderColor={isWin ? "green.400" : "red.400"}
+      borderStyle="groove"
       bgGradient="to-t"
       gradientFrom={isWin ? "yellow.400" : "red.400"}
       gradientTo={isWin ? "green.200" : "yellow.200"}
       shadow={"2xl"}
       p={4}
       w="fit-content"
-      alignSelf={"center"}
+      h="fit-content"
       position={"absolute"}
-      verticalAlign={"middle"}
+      top={200}
+      zIndex={10}
       {...props}
     >
       <VStack>
