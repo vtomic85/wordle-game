@@ -1,4 +1,4 @@
-import { Box, VStack, HStack, Text, Center } from "@chakra-ui/react";
+import { Box, VStack, HStack, Text } from "@chakra-ui/react";
 import Letter from "../Letter/Letter";
 
 export interface GameOverBoxProps {
